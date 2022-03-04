@@ -6,10 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muthukumar3/redux-full.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muthukumar3/redux-full/issues"
+  },
+  "homepage": "https://github.com/muthukumar3/redux-full#readme",
   "dependencies": {
-    "redux": "^4.1.2"
+    "react": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.2",
+    "redux": "^4.1.2",
+    "thunk": "^0.0.1"
   }
 }
