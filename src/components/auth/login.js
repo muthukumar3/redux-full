@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { AuthActions } from '../../store/authentication'; 
 import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 export default function Login() {
     const dispatch = useDispatch();
@@ -39,7 +40,7 @@ export default function Login() {
 
                         <div className="form-group">
                             <br />
-                                <input className="btn btn-primary" type="submit" value="Login" />
+                                <Button variant="contained" type="submit">Login</Button>
                             <br />
                         </div>
                     </form>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';  
 import { CounterActions } from '../store/counter';
+import Button from '@mui/material/Button';
 
 export default function Counter() {
  
@@ -27,10 +28,10 @@ export default function Counter() {
                     <h5>Counter</h5>
                 </div>
                 <div className="card-body">
-                    <button className="btn btn-primary m-1 " onClick={incrementHandle}>Increment</button> 
-                    <button className="btn btn-primary m-1 " onClick={decrementHandle}>Decrement</button> 
-                    <button className="btn btn-primary m-1 " onClick={increaseHandle}>Increase</button> 
-                    <button className="btn btn-primary m-1 " onClick={toggleHandler}>{!toggle && 'Show' } {toggle && 'Hide'}</button> 
+                    <Button variant="contained" onClick={incrementHandle}>Increment</Button>
+                    <Button variant="contained" onClick={decrementHandle}>Decrement</Button>
+                    <Button variant="contained" onClick={increaseHandle}>Increase</Button> 
+                    <Button variant="contained" onClick={toggleHandler}>{!toggle && 'Show' } {toggle && 'Hide'}</Button>  
                     {toggle && <p>Current Value : {count}</p> }
                 </div>
             </div> 
