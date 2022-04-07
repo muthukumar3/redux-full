@@ -20,6 +20,9 @@ export default function Counter() {
     const toggleHandler = () => {
         dispatch(CounterActions.toggle());
     }
+    const resetHandle = () => {
+        dispatch(CounterActions.reset());
+    }
 
     return (
         <>
@@ -28,9 +31,10 @@ export default function Counter() {
                     <h5>Counter</h5>
                 </div>
                 <div className="card-body">
-                    <Button variant="contained" onClick={incrementHandle}>Increment</Button>
-                    <Button variant="contained" onClick={decrementHandle}>Decrement</Button>
-                    <Button variant="contained" onClick={increaseHandle}>Increase</Button> 
+                    <Button variant="outlined" size="medium" onClick={incrementHandle} className="ml-2">Increment</Button> &nbsp;
+                    <Button variant="contained" size="medium" onClick={decrementHandle}>Decrement</Button> &nbsp;
+                    <Button variant="outlined" size="medium" onClick={increaseHandle}>Increase</Button>  &nbsp;
+                    <Button variant="contained" size="medium" onClick={resetHandle}>Reset</Button> &nbsp;
                     <Button variant="contained" onClick={toggleHandler}>{!toggle && 'Show' } {toggle && 'Hide'}</Button>  
                     {toggle && <p>Current Value : {count}</p> }
                 </div>
