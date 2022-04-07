@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar'; 
 import Container from '@mui/material/Container'; 
  
-const Header2 = () => { 
+const Header = () => { 
   return (
     <>    
     {/* <AppBar position="static">

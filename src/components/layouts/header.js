@@ -17,7 +17,7 @@ export default function Header() {
     
     return(
       <>
-          <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+          <nav className="navbar navbar-expand-sm bg-dark navbar-dark" id="header">
             <div className="container-fluid">
               <h4 className="text text-warning">Redux Slicing</h4>
               <ul className="navbar-nav">
