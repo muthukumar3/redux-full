@@ -12,8 +12,11 @@ code {
     monospace;
 }
 .logo {
-  width: 70px;;
-}
+  width: 250px;
+  height: 50px;
+  align-items: center;
+  margin: 0px 80px;
+} 
 
 .loader {
   border: 10px solid #f3f3f3;
