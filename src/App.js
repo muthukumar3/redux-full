@@ -12,7 +12,6 @@ import { axiosReqResLoader } from './utils/helpers';
 import { useEffect } from 'react';
 
 function App() {
-
   useEffect(() => { axiosReqResLoader() }, []);
   
   return (
@@ -26,8 +25,7 @@ function App() {
                 <Route path='/profile' element={<Profile/>} />
                 <Route path='/tasks' element={<Tasks/>} />
                 <Route path='/infinite-pagenation' element={<InfinitePagenation/>} />
-                <Route exact path='/login' element={<Login/>} /> 
-                
+                <Route exact path='/login' element={<Login/>} />
             </Routes>
           </BrowserRouter>
       </header> 
