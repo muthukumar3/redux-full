@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from "react";
 import { Axios } from '../utils/helpers';
+import React, {useEffect, useState} from "react";
 
 export default function Products() {
+    var currentPage = 0; // Can also set in state
     const [users, setUsers] = useState([]);
-    const [page, setPage] = useState(1);
 
     useEffect(() => {
-        if (page == 1) { // first time load once
+        if (currentPage == 0) { // first time load 2
             getData();
         }
         window.addEventListener('scroll', handleScroll);
@@ -16,17 +16,16 @@ export default function Products() {
         var userHeight   = window.innerHeight + window.scrollY - 55;
         var windowHeight = document.getElementById("myDIV").offsetHeight;
  
-        if (userHeight == windowHeight) {
+        if (userHeight >= windowHeight) {
             getData();
         }
     }
 
     const getData = () => {
-        Axios.get(`https://api.instantwebtools.net/v1/passenger?page=${page}&size=10`).then(response => {
-            
-            if (response.status== 200 && response.data && response.data.data) {
-                setPage(page => (page+1));
+        currentPage++; 
+        Axios.get(`https://api.instantwebtools.net/v1/passenger?page=${currentPage}&size=10`).then(response => {
 
+            if (response.status== 200 && response.data && response.data.data) {
                 var resData = response.data.data;
                 setUsers((value) => ([
                     ...value,
@@ -40,7 +39,7 @@ export default function Products() {
     return(
         <div className="container" id="myDIV">
             <div className="row justify-content-md-center">
-                <div className="col-md-8" align="center"> 
+                <div className="col-md-8" align="center">
                 <div className="cord-body bg-light">
                     <h5 className="text text-danger">
                         This page load 10 records for 1 time and load again when you go to bottom, you can view infinte details like other social meadias.
@@ -48,8 +47,8 @@ export default function Products() {
                 </div>
                     {users && users.length > 0 && users.map((user) => { 
                         return(
-                            <div key={Math.random()}>
-                                <div className="card mt-5">
+                            <>
+                                <div key={Math.random()} className="card mt-5">
                                     <div className="cord-body">
                                         <div className="card-title">
                                             <h1 className="text bg-primary">{user.name} </h1>
@@ -68,23 +67,11 @@ export default function Products() {
                                         </div>
                                     </div>
                                 </div>
-                                {/* Another Model design */}
-
-                                {/* <div className="container mt-3"> 
-                                    <div className="card">
-                                    <img className="card-img-top" src={user.airline[0].logo} alt="Card image" />
-                                        <div className="card-body">
-                                        <h4 className="card-title">{user.name}</h4>
-                                        <p className="card-text">{user.airline[0].slogan}</p>
-                                        <a href={user.airline[0].website} target="_blank" className="btn btn-primary">Website</a>
-                                        </div>
-                                        </div>  
-                                    </div> */}
-                            </div>
+                            </>
                         )
                     })
-                }
-                <div className="" id="loader"></div>
+                    }
+                <div className='loader' id='loader'></div>
                 </div> 
             </div>
         </div>
