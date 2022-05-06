@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link, useNavigate } from "react-router-dom"; 
 import { useSelector, useDispatch } from 'react-redux';
-import { AuthActions } from "../../store/authentication"; 
+import { AuthActions } from "../../store/authentication";  
 
 export default function Header() {  
   const dispatch = useDispatch(); 
     const auth = useSelector(state => state.auth);
-    const navigate = useNavigate();
-    
+    const navigate = useNavigate(); 
+
     const logoutHandler = () => {
       localStorage.setItem('user', '');
       localStorage.setItem('isAuthenticated', false);
@@ -33,8 +33,11 @@ export default function Header() {
                       <Link to="/profile" className="nav-link">Profile</Link>
                     </li>
                     <li className="nav-item">
-                      <a href="#" onClick={logoutHandler} className="nav-link">Logout</a>
+                      <Link to="/tasks" className="nav-link">Tasks</Link>
                     </li>
+                    <li className="nav-item">
+                      <a href="#" onClick={logoutHandler} className="nav-link">Logout</a>
+                    </li> 
                 </>
                 }
                 {!auth.isAuthenticated &&
