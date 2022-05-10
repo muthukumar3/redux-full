@@ -1,51 +1,92 @@
-import React, {useState} from "react"; 
-import InfiniteScroll from "react-infinite-scroll-component";
+import axios from "axios";
+import React, { useState, useEffect, Fragment} from "react"; 
+import Button from "./components/button";
 
 export default function InfinitePagenation() {
+    const [data, setData] = useState({});
+    const [processing, setProcessing] = useState(false);
 
-    const [state, setState] = useState({
-        items: Array.from({ length: 51 }),
-        hasMore: true
-    });
+    useEffect(() => {
+        setProcessing(true); 
+        axios.get(`https://api.instantwebtools.net/v1/passenger?page=1&size=15`).then(response => {
+            if (response.status == 200) {
+                setData((data)=> ({
+                    data : response.data.data,
+                    next_page : 2
+                }));
+            }
+            setProcessing(false); 
+            return Promise.resolve;
+        });
+        window.addEventListener('scroll', handleScroll, true);
+    }, []);
 
     const fetchMoreData = () => {
-        if (state.items.length >= 500) {
-          setState({ hasMore: false });
-          return;
-        } 
-        setTimeout(() => {
-            setState({
-                items: state.items.concat(Array.from({ length: 51 }))
-            })
-        },5000);
-      };
-      const style = {
-        height: 150,
-        border: "1px solid green",
-        margin: 6,
-        padding: 8
-      };
-      console.log(state.items.length);
-    return(
-        <>
-            <InfiniteScroll
-                dataLength={state.items}
-                next={fetchMoreData}
-                hasMore={true}
-                loader={<h4>Loading...</h4>}
-                endMessage={
-                    <p style={{ textAlign: "center" }}>
-                    <b>Yay! You have seen it all</b>
-                    </p>
+        if (data.next_page) {
+            setProcessing(true); 
+            axios.get(`https://api.instantwebtools.net/v1/passenger?page=${data.next_page}&size=15`).then(response => {
+                if (response.status == 200) {
+                    setData((data)=> ({
+                        data : [...data.data, ...response.data.data],
+                        next_page : data.next_page+1
+                    }));
                 }
-            >
-            {state.items.map((i, index) => (
-                <div style={style} key={index}>
-                div - #{index}
+                setProcessing(false); 
+                return Promise.resolve;
+            }).then((err) => {
+                setProcessing(false); 
+                console.log(err);
+                return Promise.reject;
+            });
+        }  
+    };
+    
+    const handleScroll = (e) => {
+        const bottom = Math.round(e.target.scrollHeight - e.target.scrollTop) === e.target.clientHeight;
+        if (bottom && document.getElementById("more_button")) {
+            document.getElementById("more_button").click();
+        }
+    } 
+
+    return(
+        <Fragment>
+            <section className="d-flex align-items-center summary-list category-list">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12 header-content"> 
+                            <h3>Infinite Scroll functionolity </h3>
+                        </div>
+                        {data && data.data && data.data.length > 0 && data.data.map((user) => {
+                            return(
+                                <Fragment key={Math.random()}>
+                                    <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-2"> 
+                                        <div className="card"> 
+                                            <img src={user.airline[0].logo} className="logo" alt="card-image1"/>
+                                            <div className="card-body">
+                                                <h5 className="card-title card-heading">{user.name}</h5>
+                                                <h5 className="card-title card-heading">{user.airline[0].name}</h5>
+                                                <p className="card-content">{user.airline[0].slogan}</p>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </Fragment>
+                            )
+                        })}
+                        {processing && <div className='loader' id='loader'></div> }
+                        {data && data.next_page &&   
+                            <Button 
+                                type     = "button" 
+                                className= "hidden" 
+                                onClick  = {fetchMoreData} 
+                                id       = "more_button" 
+                                name     = "More" 
+                                disabled = {processing} 
+                            /> 
+                        }
+                    </div>
                 </div>
-            ))}
-            </InfiniteScroll>
-        </>
-    )
+            </section>
+        </Fragment>
+    );
 } 
  

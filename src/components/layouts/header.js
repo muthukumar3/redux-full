@@ -26,11 +26,14 @@ export default function Header() {
                 </li>
                 {auth.isAuthenticated &&
                 <>
-                  <li className="nav-item">
+                    <li className="nav-item">
+                      <Link to="/infinite-pagenation" className="nav-link">Infinite Pagenation</Link>
+                    </li>
+                    <li className="nav-item">
                       <Link to="/products" className="nav-link">Products</Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/profile" className="nav-link">Profile</Link>
+                      {/* <Link to="/profile" className="nav-link">Profile</Link> */}
                     </li>
                     <li className="nav-item">
                       <Link to="/tasks" className="nav-link">Tasks</Link>

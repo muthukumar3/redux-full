@@ -11,8 +11,8 @@ export default function Login() {
         event.preventDefault();
         var user = JSON.stringify({
             name : 'Muthu kumar S',
-            email : 'muthu@gmail.conm',
-            phone : '8940749654'
+            email : 'muthu@gmail.com',
+            phone : '9787202816'
         });
 
         localStorage.setItem('user', user);
@@ -30,12 +30,12 @@ export default function Login() {
                     <form  method="post" onSubmit={loginHandler}>
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
-                            <input className="form-control" id="email" type="text" name="email" placeholder="Enter Email" />
+                            <input className="form-control" id="email" type="text" name="email" placeholder="Enter Email" value="muthu@gmail.com" />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
-                            <input className="form-control" id="password" type="password" name="password" placeholder="Enter Password" />
+                            <input className="form-control" id="password" type="password" name="password" placeholder="Enter Password" value="9787202816" />
                         </div> 
 
                         <div className="form-group">
