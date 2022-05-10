@@ -28,7 +28,7 @@ export default function Counter() {
         <>
             <div className="card">
                 <div className="card-title">
-                    <h5>Counter</h5>
+                    <h5>Redux Slicing Concept for Counter </h5>
                 </div>
                 <div className="card-body">
                     <Button variant="outlined" size="medium" onClick={incrementHandle} className="ml-2">Increment</Button> &nbsp;

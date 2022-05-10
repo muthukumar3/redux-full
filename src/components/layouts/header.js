@@ -19,7 +19,7 @@ export default function Header() {
       <>
           <nav className="navbar navbar-expand-sm bg-dark navbar-dark" id="header">
             <div className="container-fluid">
-              <h4 className="text text-warning">Redux Slicing</h4>
+              <h4 className="text text-warning">React Concepts - POC (Prof of Work)</h4>
               <ul className="navbar-nav">
                 <li className="nav-item">
                   <Link to="/" className="nav-link">Home</Link>
