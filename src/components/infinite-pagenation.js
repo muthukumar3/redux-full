@@ -50,42 +50,45 @@ export default function InfinitePagenation() {
 
     return(
         <Fragment>
-            <section className="d-flex align-items-center summary-list category-list">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12 header-content"> 
-                            <h3>Infinite Scroll functionolity </h3>
+            <div className="card m-3 shadow p-3 bg-body rounded">
+                <section className="d-flex align-items-center summary-list category-list">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 text-center"> 
+                                <h3>Infinite Scroll functionolity </h3>
+                            </div>
+                            {data && data.data && data.data.length > 0 && data.data.map((user) => {
+                                return(
+                                    <Fragment key={Math.random()}>
+                                        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 mb-2"> 
+                                            <div className="card m-3 shadow p-3 bg-body rounded"> 
+                                                <img src={user.airline[0].logo} className="logo" alt="card-image1"/>
+                                                <div className="card-body">
+                                                    <h5 className="card-title card-heading">{user.name}</h5>
+                                                    <h5 className="card-title card-heading">{user.airline[0].name}</h5>
+                                                    <p className="card-content">{user.airline[0].slogan}</p>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </Fragment>
+                                )
+                            })}
+                            {processing && <div className='loader align-items-center' id='loader'></div> }
+                            {data && data.next_page &&   
+                                <Button 
+                                    type     = "button" 
+                                    className= "hidden" 
+                                    onClick  = {fetchMoreData} 
+                                    id       = "more_button" 
+                                    name     = "More" 
+                                    disabled = {processing} 
+                                /> 
+                            }
                         </div>
-                        {data && data.data && data.data.length > 0 && data.data.map((user) => {
-                            return(
-                                <Fragment key={Math.random()}>
-                                    <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-2"> 
-                                        <div className="card"> 
-                                            <img src={user.airline[0].logo} className="logo" alt="card-image1"/>
-                                            <div className="card-body">
-                                                <h5 className="card-title card-heading">{user.name}</h5>
-                                                <h5 className="card-title card-heading">{user.airline[0].name}</h5>
-                                                <p className="card-content">{user.airline[0].slogan}</p>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </Fragment>
-                            )
-                        })}
-                        {processing && <div className='loader' id='loader'></div> }
-                        {data && data.next_page &&   
-                            <Button 
-                                type     = "button" 
-                                className= "hidden" 
-                                onClick  = {fetchMoreData} 
-                                id       = "more_button" 
-                                name     = "More" 
-                                disabled = {processing} 
-                            /> 
-                        }
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
+
         </Fragment>
     );
 } 

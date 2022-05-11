@@ -37,18 +37,17 @@ export default function Products() {
     }
 
     return(
-        <div className="container" id="myDIV">
+        <div className="card m-3 shadow p-3 bg-body rounded" id="myDIV">
             <div className="row justify-content-md-center">
                 <div className="col-md-8" align="center">
                 <div className="cord-body bg-light">
-                    <h5 className="text text-danger">
-                        This page load 10 records for 1 time and load again when you go to bottom, you can view infinte details like other social meadias.
-                    </h5>
+                    <h3 className='text-center'>Infinite Scroll 2</h3>
+                    <p>This page load 10 records for 1 time and load again when you go to bottom, you can view infinte details like other social meadias.</p>
                 </div>
                     {users && users.length > 0 && users.map((user) => { 
                         return(
                             <>
-                                <div key={Math.random()} className="card mt-5">
+                                <div key={Math.random()} className="card m-3 ">
                                     <div className="cord-body">
                                         <div className="card-title">
                                             <h1 className="text bg-primary">{user.name} </h1>

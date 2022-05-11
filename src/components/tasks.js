@@ -28,34 +28,28 @@ export default function Tasks() {
   console.log(higher_order_comp(10, add));
 
   return (
-    <Fragment>
-      <section>
-
-        <div className="card">
+    <div className='shadow p-3 bg-body card rounded'>
+        <div className="card m-3 shadow p-3 bg-body rounded">
           <div className="card-title text-center">
             <h5>Clousers</h5>
           </div> 
-          <pre>
+          <p>
             Create one function and add another function inside helper function, and can access helper function params inside child function, 
             it store data still like const variable 
-          </pre>
-            <h5>{ helper.show() }</h5>
+          </p>
+          <h5 className='text-center'>{ helper.show() }</h5>
         </div> 
-      </section>
-
-      <section>
-        <div className="card">
+ 
+        <div className="card m-3 shadow p-3 bg-body rounded">
           <div className="card-title text-center">
             <h5>IIFE - Immediatly invoked function excecution </h5>
           </div> 
           <pre>
             It’s an Immediately-Invoked Function Expression, or IIFE for short. It executes immediately after it’s created:
           </pre> 
-        </div> 
-      </section> 
-
-      <section>
-        <div className="card">
+        </div>  
+ 
+        <div className="card m-3 shadow p-3 bg-body rounded">
           <div className="card-title text-center">
             <h5>Higher Order Components</h5>
           </div> 
@@ -74,8 +68,6 @@ export default function Tasks() {
           Answer Is <>{higher_order_comp(10, add)}</>
           </pre>
         </div> 
-      </section> 
-
-    </Fragment>
+    </div>
   );
 }
