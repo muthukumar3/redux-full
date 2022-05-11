@@ -24,25 +24,24 @@ export default function Login() {
     return(
         <div className="card">
         <div className="row justify-content-center">
-            <div className="col-md-6">
+            <div className="col-md-8">
                 <div className="form-box">
                     <h4 className="text text-center">Login</h4>
                     <form  method="post" onSubmit={loginHandler}>
-                        <div className="form-group">
+                        <div className="form-group mb-2">
                             <label htmlFor="email">Email</label>
-                            <input className="form-control" id="email" type="text" name="email" placeholder="Enter Email" value="muthu@gmail.com" />
+                            <input className="form-control" id="email" type="text" name="email" placeholder="Enter Email" readOnly value="muthu@gmail.com" />
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group mb-2">
                             <label htmlFor="password">Password</label>
-                            <input className="form-control" id="password" type="password" name="password" placeholder="Enter Password" value="9787202816" />
+                            <input className="form-control" id="password" type="password" name="password" placeholder="Enter Password" readOnly value="9787202816" />
                         </div> 
 
-                        <div className="form-group">
-                            <br />
-                                <Button variant="contained" type="submit">Login</Button>
-                            <br />
+                        <div className="form-group mb-3 mt-3"> 
+                            <Button variant="contained" type="submit">Login</Button>
                         </div>
+                        <p>Login to see all other concepts</p>
                     </form>
                 </div> 
             </div>

@@ -22,23 +22,24 @@ export default function Counter() {
     }
     const resetHandle = () => {
         dispatch(CounterActions.reset());
-    }
+    };
 
+    
     return (
-        <>
-            <div className="card">
-                <div className="card-title">
-                    <h5>Redux Slicing Concept for Counter </h5>
-                </div>
-                <div className="card-body">
-                    <Button variant="outlined" size="medium" onClick={incrementHandle} className="ml-2">Increment</Button> &nbsp;
-                    <Button variant="contained" size="medium" onClick={decrementHandle}>Decrement</Button> &nbsp;
-                    <Button variant="outlined" size="medium" onClick={increaseHandle}>Increase</Button>  &nbsp;
-                    <Button variant="contained" size="medium" onClick={resetHandle}>Reset</Button> &nbsp;
-                    <Button variant="contained" onClick={toggleHandler}>{!toggle && 'Show' } {toggle && 'Hide'}</Button>  
-                    {toggle && <p>Current Value : {count}</p> }
-                </div>
-            </div> 
-        </>
+        <div className="card m-3 shadow p-3 bg-body rounded">
+            <div className="card-title text-center">
+                <h3>Redux Slicing Concept for Counter </h3>
+            </div>
+            <div className="card-body">
+                <Button variant="contained" size="medium" onClick={incrementHandle} className="ml-2">Increment</Button> &nbsp;
+                <Button variant="outlined" size="medium" onClick={decrementHandle}>Decrement</Button> &nbsp;
+                <Button variant="contained" size="medium" onClick={increaseHandle}>Increase</Button>  &nbsp;
+                <Button variant="outlined" size="medium" onClick={resetHandle}>Reset</Button> &nbsp;
+                <Button variant="contained" onClick={toggleHandler}>{!toggle && 'Show' } {toggle && 'Hide'}</Button>
+            </div>
+            <div className="card-title text-center">
+                <h3>{toggle && <p>Current Value : {count}</p> }</h3>
+            </div>
+        </div>
     )
 }
