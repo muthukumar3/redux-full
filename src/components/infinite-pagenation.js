@@ -51,11 +51,12 @@ export default function InfinitePagenation() {
     return(
         <Fragment>
             <div className="card m-3 shadow p-3 bg-body rounded">
-                <section className="d-flex align-items-center summary-list category-list">
-                    <div className="container">
+                <section className="d-flex align-items-center">
+                    <div className="">
                         <div className="row">
                             <div className="col-lg-12 text-center"> 
-                                <h3>Infinite Scroll functionolity </h3>
+                                <h3>Infinite Scroll 1</h3>
+                                <p>This Method not completed fully, please refer products screen for perfect scrolling </p>
                             </div>
                             {data && data.data && data.data.length > 0 && data.data.map((user) => {
                                 return(
@@ -73,7 +74,6 @@ export default function InfinitePagenation() {
                                     </Fragment>
                                 )
                             })}
-                            {processing && <div className='loader align-items-center' id='loader'></div> }
                             {data && data.next_page &&   
                                 <Button 
                                     type     = "button" 
@@ -84,6 +84,7 @@ export default function InfinitePagenation() {
                                     disabled = {processing} 
                                 /> 
                             }
+                            {processing && <div className='loader align-items-center' id='loader'></div> }
                         </div>
                     </div>
                 </section>

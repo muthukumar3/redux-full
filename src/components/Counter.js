@@ -29,6 +29,7 @@ export default function Counter() {
         <div className="card m-3 shadow p-3 bg-body rounded">
             <div className="card-title text-center">
                 <h3>Redux Slicing Concept for Counter </h3>
+                <p>Footer la whats app & telegram & twitter & Linked In & Git lap links kudukanum</p>
             </div>
             <div className="card-body">
                 <Button variant="contained" size="medium" onClick={incrementHandle} className="ml-2">Increment</Button> &nbsp;

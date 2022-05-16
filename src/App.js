@@ -15,7 +15,7 @@ function App() {
   useEffect(() => { axiosReqResLoader() }, []);
   
   return (
-    <div className=" bg-light">
+    <div className="bg-light">
         <BrowserRouter> 
           <Header />
           <div className="card mt-5">
@@ -26,7 +26,7 @@ function App() {
                     <Route path='/products' element={<Products/>} /> 
                     <Route path='/profile' element={<Profile/>} />
                     <Route path='/tasks' element={<Tasks/>} />
-                    <Route path='/infinite-pagenation' element={<InfinitePagenation/>} />
+                    <Route path='/infinite-scroll' element={<InfinitePagenation/>} />
                     <Route exact path='/login' element={<Login/>} />
                   </Routes>
               </div>
