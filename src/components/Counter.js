@@ -4,8 +4,7 @@ import { CounterActions } from '../store/counter';
 import Button from '@mui/material/Button';
 
 export default function Counter() {
- 
-    const { count, toggle } = useSelector((state) => state.counters);
+    const { count, toggle } = useSelector((state) => state);
     const dispatch = useDispatch();
 
     const incrementHandle = () => {
@@ -24,11 +23,11 @@ export default function Counter() {
         dispatch(CounterActions.reset());
     };
 
-    
     return (
         <div className="card m-3 shadow p-3 bg-body rounded">
             <div className="card-title text-center">
                 <h3>Redux Slicing Concept for Counter </h3>
+                <p>Footer la whats app & telegram & twitter & Linked In & Git lap links kudukanum</p>
             </div>
             <div className="card-body">
                 <Button variant="contained" size="medium" onClick={incrementHandle} className="ml-2">Increment</Button> &nbsp;

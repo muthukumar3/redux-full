@@ -29,7 +29,7 @@ export default function Header() {
                 {auth.isAuthenticated &&
                 <>
                     <li className="nav-item">
-                      <Link to="/infinite-pagenation" className={`nav-link ${segments[1] == 'infinite-pagenation' ? 'active' : ''} `}>Infinite Pagenation</Link>
+                      <Link to="/infinite-scroll" className={`nav-link ${segments[1] == 'infinite-scroll' ? 'active' : ''} `}>Infinite Scroll</Link>
                     </li>
                     <li className="nav-item">
                       <Link to="/products" className={`nav-link ${segments[1] == 'products' ? 'active' : ''} `}>Products</Link>

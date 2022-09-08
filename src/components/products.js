@@ -40,10 +40,10 @@ export default function Products() {
         <div className="card m-3 shadow p-3 bg-body rounded" id="myDIV">
             <div className="row justify-content-md-center">
                 <div className="col-md-8" align="center">
-                <div className="cord-body bg-light">
-                    <h3 className='text-center'>Infinite Scroll 2</h3>
-                    <p>This page load 10 records for 1 time and load again when you go to bottom, you can view infinte details like other social meadias.</p>
-                </div>
+                    <div className="cord-body">
+                        <h3 className='text-center'>Infinite Scroll 2</h3>
+                        <p>This page load 10 records for 1 time and load again when you go to bottom, you can view infinte details like other social meadias.</p>
+                    </div>
                     {users && users.length > 0 && users.map((user) => { 
                         return(
                             <>
@@ -70,7 +70,7 @@ export default function Products() {
                         )
                     })
                     }
-                <div className='loader' id='loader'></div>
+                    <div className='loader' id='loader'></div>
                 </div> 
             </div>
         </div>

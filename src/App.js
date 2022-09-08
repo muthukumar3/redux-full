@@ -3,30 +3,38 @@ import Header from './components/layouts/header';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Products from './components/products';
 import Tasks from './components/tasks';
+import Test from './components/test';
 import Profile from './components/profile';
 import Home from './components/home';
+import Home2 from './components/NewCounter';
 import Login from './components/auth/login';
 import InfinitePagenation from './components/infinite-pagenation';
 import './index.css';
 import { axiosReqResLoader } from './utils/helpers';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 function App() {
   useEffect(() => { axiosReqResLoader() }, []);
   
+  const fullStore = useSelector(state => state.basicSlice);
+  
   return (
-    <div className=" bg-light">
+    <div className="bg-light">
+        <h1>{fullStore.name}</h1>
         <BrowserRouter> 
-          <Header />
+          {/* <Header /> */}
           <div className="card mt-5">
             <div className="col-md-12 d-flex justify-content-center">
                 <div className="col-md-8 m-3">
                   <Routes>
                     <Route path='/' element={<Home/>} /> 
+                    <Route path='/home2' element={<Home2/>} /> 
                     <Route path='/products' element={<Products/>} /> 
                     <Route path='/profile' element={<Profile/>} />
                     <Route path='/tasks' element={<Tasks/>} />
-                    <Route path='/infinite-pagenation' element={<InfinitePagenation/>} />
+                    <Route path='/test' element={<Test/>} />
+                    <Route path='/infinite-scroll' element={<InfinitePagenation/>} />
                     <Route exact path='/login' element={<Login/>} />
                   </Routes>
               </div>
