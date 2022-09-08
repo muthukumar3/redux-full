@@ -5,12 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store/index';
+import stores from './stores/index';
 import LinearProgress from '@mui/material/LinearProgress';  
 
 ReactDOM.render(
   <Suspense fallback={<LinearProgress />}>
-    <Provider store={store}> 
-        <App /> 
+    <Provider store={stores}> 
+        <App/> 
     </Provider>
   </Suspense>,
   document.getElementById('root')
