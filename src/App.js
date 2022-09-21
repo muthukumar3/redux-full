@@ -11,19 +11,15 @@ import Login from './components/auth/login';
 import InfinitePagenation from './components/infinite-pagenation';
 import './index.css';
 import { axiosReqResLoader } from './utils/helpers';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react'; 
 
 function App() {
-  useEffect(() => { axiosReqResLoader() }, []);
-  
-  const fullStore = useSelector(state => state.basicSlice);
+  useEffect(() => { axiosReqResLoader() }, []); 
   
   return (
-    <div className="bg-light">
-        <h1>{fullStore.name}</h1>
+    <div className="bg-light"> 
         <BrowserRouter> 
-          {/* <Header /> */}
+           <Header />
           <div className="card mt-5">
             <div className="col-md-12 d-flex justify-content-center">
                 <div className="col-md-8 m-3">

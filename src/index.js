@@ -10,7 +10,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 
 ReactDOM.render(
   <Suspense fallback={<LinearProgress />}>
-    <Provider store={stores}> 
+    <Provider store={store}> 
         <App/> 
     </Provider>
   </Suspense>,

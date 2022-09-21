@@ -36,10 +36,55 @@ let allAge = arr.reduce((accumulatedValue, ar) => accumulatedValue + ar.age, 0 )
     var name = 'Muthu';
 
     function insserFn() {
-        console.log(name);
+        // console.log(name);
     }
     insserFn();
 })();
+
+function person(obj) {
+    console.log(this, obj);
+}
+
+const object = {
+    val1 : "Name 1",
+    val2 : "Name 2",
+    val3 : "Name 3"
+}
+const personbind = person.bind(object, ['GHJK','saG','QWE']);
+// setTimeout(personbind, 10);
+
+
+const someObj = {
+    name : "Muthu",
+    age : "26",
+    email : "muthukumar@gmail.com" 
+}
+
+function randomfn(one) {
+    console.log(this, one);
+}
+
+const randomfnrtn = randomfn.bind(someObj, [ 'One' , 'Two' ]);
+setImmediate(randomfnrtn);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
