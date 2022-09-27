@@ -22,8 +22,8 @@ export default function Tasks() {
 
   const add = (a, b) => a + b;
 
-  const higher_order_comp = (a, add_function_oda_dynamic_name) => {
-    return add_function_oda_dynamic_name(a, a  * 10);
+  const higher_order_comp = (a, adds) => {
+    return adds(a, a  * 10);
   }
   console.log(higher_order_comp(10, add));
 
